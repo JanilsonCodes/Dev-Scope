@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevScope • GitHub Developer Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://i.ibb.co/7mnqctR/logo-2.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span>Dev</span>Scope
+            <span class="subtitle">GitHub Developer Explorer</span>
+        </div>
+        
+        <div class="search-container">
+            <form id="search-form" class="search-form">
+                <input type="text" id="search-input" placeholder="Digite um username do GitHub..." autocomplete="off">
+                <button type="submit" id="search-btn">Buscar</button>
+            </form>
+        </div>
+        
+        <div class="nav-buttons">
+            <button onclick="showView('explore')" id="btn-explore" class="nav-btn active">
+                <span>🔎</span> Explorar
+            </button>
+            <button onclick="showView('favorites')" id="btn-favorites" class="nav-btn">
+                <span>⭐</span> Favoritos
+            </button>
+        </div>
+    </header>
+
+    <!-- HISTÓRICO -->
+    <div class="history" id="history-container">
+        <!-- chips gerados por JS -->
+    </div>
+
+    <main>
+        <!-- VIEW EXPLORAR -->
+        <div id="explore-view" class="view active">
+            <h2 class="section-title">🔥 Explorar Desenvolvedores</h2>
+            <div id="explore-grid" class="explore-grid"></div>
+        </div>
+
+        <!-- VIEW FAVORITOS -->
+        <div id="favorites-view" class="view">
+            <h2 class="section-title">⭐ Meus Favoritos</h2>
+            <div id="favorites-grid" class="favorites-grid"></div>
+            <div id="no-favorites" style="display: none; text-align: center; padding: 4rem; color: var(--text-secondary);">
+                <p style="font-size: 1.2rem;">Nenhum favorito ainda.</p>
+                <p style="margin-top: 1rem;">Busque um desenvolvedor e clique em ⭐ para salvar!</p>
+            </div>
+        </div>
+
+        <!-- VIEW PERFIL -->
+        <div id="profile-view" class="view">
+            <div id="profile-loading" class="loading">
+                <div class="spinner"></div>
+                <p>Carregando perfil do GitHub...</p>
+            </div>
+            
+            <div id="profile-error" class="error" style="display: none;">
+                <h3>❌ Usuário não encontrado</h3>
+                <p id="error-message">Verifique o username e tente novamente.</p>
+            </div>
+            
+            <div id="profile-content" style="display: none;">
+                <!-- Preenchido dinamicamente por JS -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        DevScope • Consumindo API pública do GitHub • Feito com ❤️ em um único arquivo HTML
+    </footer>
+    <script src="apresenta.js"></script>
+</body>
+</html>
